@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'hora',
+    name: 'test',
     description: '...',
     execute(message, args, client) {
         const { id } = message.channel.guild.channels.cache.find(element => element.name.toLowerCase() === args[0])

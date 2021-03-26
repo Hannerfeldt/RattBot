@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const getCommand = require('./framework/message/getCommand')
-const User = require('./models/user')
+const { TOKEN } = process.env
 
 const client = new Discord.Client()
 
@@ -40,4 +40,4 @@ client.once('ready', (e) => {
     console.log('⚡RåttBot is online!⚡')
 })
 
-client.login('ODIwMzM0MzgyNDUxNTIzNjI2.YEzp7Q.Cjg688dNbhJVRxcETUlVAiuIzGQ')
+client.login(TOKEN)
