@@ -14,7 +14,7 @@ const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith(
 
 const prefix = 'nih'
 const onCooldown = new Set()
-const cooldownTimer = 3000
+const cooldownTimer = 2000
 
 commandFiles.forEach(file => {
     const command = require(`./commands/${file}`)
@@ -22,23 +22,28 @@ commandFiles.forEach(file => {
 })
 
 client.on('message', message => {
+    /* If message is from bot, ignore it */
+    if (message.author.bot) return
+
     const msgContent = message.content
     let args
     let commandName
-    /* Run old command and pass in message */
+
+    /* Run previouse command and pass in message no prefix required */
     if (client.noPrefixRequired) {
         commandName = client.oldCommandName
-        args = msgContent
+        args = [ msgContent.toLowerCase() ]
     }
     else {
-        /* Check if message is valid command and if author is on cooldown */
-        if (!msgContent.startsWith(prefix) || message.author.bot) return
+        /* Check if message starts with the correct prefix */
+        if (!msgContent.startsWith(prefix)) return
         
         /* Getting command and argument */
-        commandName, args = getCommand(msgContent, prefix)
+        [ commandName, args ] = getCommand(msgContent, prefix)
     }
-    if (onCooldown.has(message.author.id)) return message.reply(`💊 Ta en chillpill, ${message.author.username} 💊`)
-
+    /* If author is on cooldown */
+    if (onCooldown.has(message.author.id)) return message.reply(Math.random() < 0.9 ? `💊 Ta en chillpill 💊` : 'har du ADHD eller?')
+    
     const command = client.commands.get(commandName)
     if (!command) return
 

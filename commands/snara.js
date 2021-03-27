@@ -9,6 +9,7 @@ const embedError = require('../framework/snara/embedError')
 const embedVictory = require('../framework/snara/embedVictory')
 const embedLoss = require('../framework/snara/embedLoss')
 const argsHandler = require('../framework/snara/argsHandler')
+const successfulGuess = require('../framework/snara/successfulGuess')
 const scoreHandler = require('../framework/user/scoreHandler')
 
 module.exports = {
@@ -48,30 +49,32 @@ module.exports = {
             this.guesses = this.guesses < 0 ? 1 : this.guesses
             this.gameStarted = true
             client.noPrefixRequired = true
-            console.log(this.chosenWord)
             return this.makeDefaultEmbed(message)
         }
-
+        const guess = args[0].split('').join()
+        
         /* Error */
-        const errorMsg = argsHandler(args, this.regEx, this.correct, this.wrong, message)
-        if (errorMsg) return this.makeErrorEmbed(message, errorMsg)
+        const errorMsg = argsHandler(guess, this.regEx, this.correct, this.wrong, message)
+        if (errorMsg) return this.makeErrorEmbed(message, errorMsg)        
 
         /* Points */
         let points
-        const guess = args[0].split('').join()
+        let correctGuess
+        if (guess.length === 1) correctGuess = makeGuessLetter(guess, this.chosenWord)
+        else correctGuess = makeGuessWord(args, this.chosenWord, this.correct)
 
-        let successfulGuess
-        if (guess.length === 1) successfulGuess = makeGuessLetter(guess, this.chosenWord).length
-        else successfulGuess = makeGuessWord(guess, this.chosenWord)
+        if (correctGuess > 0) this.correct = successfulGuess(guess === 1 ? guess : args, this.correct ), points = correctGuess
+        else {
+            if (guess.length === 1) this.wrong.push(guess), points = 0
+            else points = -1
+            this.guesses--
+        }
 
-        if (successfulGuess > 0) this.correct.push(guess), points = successfulGuess
-        else this.wrong.push(guess), this.guesses--, points = -1
-        scoreHandler(points, message.author)
-        this.score = []
-
+        this.score = scoreHandler(points, message.author)
+        
         /* Game Over */
-        if (victory(this.chosenWord, this.correct)) return this.makeVictoryEmbed(message)
-        if (this.guesses <= 0) return this.makeLossEmbed(message)
+        if (victory(this.chosenWord, this.correct)) return this.makeVictoryEmbed(message), client.noPrefixRequired = false
+        if (this.guesses <= 0) return this.makeLossEmbed(message), client.noPrefixRequired = false
 
         this.makeDefaultEmbed(message)
     },
@@ -79,7 +82,7 @@ module.exports = {
         const embededMessage = embedError(
             errorMsg,
             'Ditt meddelande: ' + `\`\`\`${message.content}\`\`\``,
-            't.ex. nih snara g')
+            'för att gissa skriv bara din gissning, inget nih-prefix behövs')
         message.channel.send(embededMessage)
     },
     makeDefaultEmbed(message) {

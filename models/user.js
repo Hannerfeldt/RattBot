@@ -4,7 +4,4 @@ module.exports = class User {
         this.name = name
         this.points = points || 0
     }
-    updatePoints(amount) {
-        this.points += amount
-    }
 }
