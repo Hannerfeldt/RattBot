@@ -40,13 +40,14 @@ module.exports = {
     wrong: [],
     regEx: /[a-zåäö\d]/,
     score: [],
-    execute(message, args) {
+    execute(message, args, client) {
         /* Init */
         if (!this.gameStarted) {
             this.chosenWord = init(this.words)
             this.guesses = Math.round(((1 / this.chosenWord.split('').length) * 20) + 3)
             this.guesses = this.guesses < 0 ? 1 : this.guesses
             this.gameStarted = true
+            client.noPrefixRequired = true
             console.log(this.chosenWord)
             return this.makeDefaultEmbed(message)
         }
@@ -58,13 +59,10 @@ module.exports = {
         /* Points */
         let points
         const guess = args[0].split('').join()
-        console.log("1", guess)
 
         let successfulGuess
         if (guess.length === 1) successfulGuess = makeGuessLetter(guess, this.chosenWord).length
         else successfulGuess = makeGuessWord(guess, this.chosenWord)
-
-        console.log("4", successfulGuess)
 
         if (successfulGuess > 0) this.correct.push(guess), points = successfulGuess
         else this.wrong.push(guess), this.guesses--, points = -1
