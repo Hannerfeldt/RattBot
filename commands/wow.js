@@ -1,8 +1,14 @@
+const Discord = require('discord.js')
 const fs = require('fs')
 const readUsers = require('../framework/user/readUsers')
 const login = require('../framework/wow/login')
 const createEmbededMessage = require('../framework/wow/createEmbededMessage')
-const templates = require('../framework/wow/embededTemplates/templates.json')
+// const attachment = new Discord.MessageAttachment('fileRoute', 'nameOfYourPicture');
+
+// const loadMobs = () => {
+//     const mobs = fs.readdirSync('./assets/wow/mobs/')
+//     return mobs.map(image => new Discord.MessageAttachment(`./assets/wow/mobs/${image}`, image))
+// }
 
 const loadCommands = () => {
     const commandFiles = fs.readdirSync('./framework/wow/commands/').filter(file => file.endsWith('.js'))
@@ -11,14 +17,36 @@ const loadCommands = () => {
 
 module.exports = {
     name:'wow',
+    templates: {
+        createCharacter: {
+            color: '#FFFF00',
+            title: 'Create your character',
+            fields: [{
+                name: 'Type your name',
+                value: '\u200b',
+                inline: false
+            }, {
+                name: 'Second field',
+                value: '...',
+                inline: false
+            }],
+            footer: 'footer content'
+        },
+    },
     commands: loadCommands(),
-    execute(message, args, client) { 
-        if (!this.checkLogin(message.author.id)) return 
-            login(message.author), 
+    execute(message, args, client) {
+        /* Login to wow */
+        if (!this.checkLogin(message.author.id)) {
+            login(message.author)
             this.sendMessage(
-                message, 
-                createEmbededMessage(templates['createCharacter'])
-            )
+                message,
+                createEmbededMessage(
+                    this.templates['createCharacter'],
+                    { path:'mobs/', name:'Wolf.webp' },
+                    { path:'zones/', name:'durotar.jpeg' }
+            ))
+            return
+        }
 
         const command = args.shift()
         try {
@@ -38,7 +66,7 @@ module.exports = {
     },
     commandHandler(commandName) {
         return this.commands.find(c => c.file === commandName)
-    }, 
+    },
     sendMessage(message, embededMessage) {
         message.channel.send(embededMessage)
     },
