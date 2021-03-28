@@ -11,6 +11,6 @@ module.exports = {
             if (parseInt(args[0]) < categories.length ) query = `?category_ids=${categories[args].id}`
         }
         const data = await apiRequest(this.apiUrl + query, this.apiKey)
-        message.channel.send(data.length ? data[0].url : 'Jag e ledsen')
+        message.channel.send(data ? data[0].url : 'Jag e ledsen')
     }
 }

@@ -1,22 +1,32 @@
 [
   {
+    "id": "216261088445071361",
+    "name": "Handen",
+    "points": 56
+  },
+  {
     "id": "216216056895635456",
     "name": "Jonis",
-    "points": 1
+    "points": 30
   },
   {
     "id": "215948699501592578",
     "name": "Viggo",
-    "points": 0
+    "points": 30
   },
   {
-    "id": "216261088445071361",
-    "name": "Handen",
-    "points": 0
+    "id": "237214480814178304",
+    "name": "Teriko",
+    "points": 7
   },
   {
     "id": "218764837881118720",
     "name": "smal",
+    "points": 0
+  },
+  {
+    "id": "215903694384791552",
+    "name": "grvn",
     "points": 0
   }
 ]
