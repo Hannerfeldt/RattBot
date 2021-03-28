@@ -1,8 +1,10 @@
+const attachment = new Discord.MessageAttachment('fileRoute', 'nameOfYourPicture');
+
 {
     "createCharacter": {
         "color": "#FFFF00",
         "title": "Create your character",
-        "thumbnail": "../assets/wow/mobs/Hydra.jpeg",
+        "thumbnail": "mobs/Hydra.jpeg",
         "fields": [{
             "name": "Type your name",
             "value": "\u200b",

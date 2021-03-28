@@ -13,7 +13,13 @@ module.exports = {
     name:'wow',
     commands: loadCommands(),
     execute(message, args, client) { 
-        if (!this.checkLogin(message.author.id)) return login(message.author), this.sendMessage(message, createEmbededMessage(templates['createCharacter']))
+        if (!this.checkLogin(message.author.id)) return 
+            login(message.author), 
+            this.sendMessage(
+                message, 
+                createEmbededMessage(templates['createCharacter'])
+            )
+
         const command = args.shift()
         try {
             const { action } = this.commandHandler(command)
