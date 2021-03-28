@@ -3,6 +3,7 @@ const fs = require('fs')
 const client = new Discord.Client()
 require('dotenv').config()
 const getCommand = require('./framework/message/getCommand')
+const users = require('./data/users.json')
 const { DISCORD_TOKEN } = process.env
 
 client.commands = new Discord.Collection()
@@ -29,8 +30,13 @@ client.on('message', message => {
     let args
     let commandName
 
+    const userIndex = users.findIndex(user => user.id === message.author.id && user.prefix)
+    if (userIndex !== -1) {
+        commandName = users[userIndex].prefix
+        args = msgContent.toLowerCase().split(' ')
+    }
     /* Run previouse command and pass in message no prefix required */
-    if (client.noPrefixRequired) {
+    else if (client.noPrefixRequired) {
         commandName = client.oldCommandName
         args = [ msgContent.toLowerCase() ]
     }

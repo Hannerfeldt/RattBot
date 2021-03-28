@@ -30,7 +30,7 @@ module.exports = {
         'ådrig', 'alfa', 'lich king', 'snek', 'stockholms blodbad', 'dummare', 'tentakel', 'minihamster', 'kebaben',
         'extra kött', 'röd sås', 'vit sås', 'specialsås', 'blizzard', 'vit sås', 'harold and kumar', 'harold and coomar',
         'isbad', 'isvak', 'propeller', 'drunkna', 'helikopter', 'avhuggen', 'stump', 'nih', 'kedja', 'avskuren', 'eksem',
-        'akne', 'indian', 'Heskiga Handen', 'för lång', 'gul', 'läderlappen', 'fuckroom', 'killroom', ' ashe main', 'stockholmspolisen STANNA',
+        'akne', 'indian', 'Heskiga Handen', 'för lång', 'gul', 'läderlappen', 'fuckroom', 'killroom', 'ashe main', 'stockholmspolisen STANNA',
         'fyllecell', 'knark', 'drake', 'knark knark drake drake knapp', 'Elon musk', 'snorkråka', 'björnbuse',' krokig näsa',
         'cigarett', 'alkohol', 'suga kuk för crack', 'plåga', 'snara', 'hoppa från bro', 'pim pim', 'zoo', 'pianotråd', 'lång',
     ],
