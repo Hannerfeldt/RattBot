@@ -24,7 +24,7 @@ commandFiles.forEach(file => {
 
 client.on('message', message => {
     /* If message is from bot, ignore it */
-    if (message.author.bot) return
+    if (message.author.bot || message.channel.name !== 'råttbot') return
 
     const msgContent = message.content
     let args
@@ -43,13 +43,13 @@ client.on('message', message => {
     else {
         /* Check if message starts with the correct prefix */
         if (!msgContent.startsWith(prefix)) return
-        
+
         /* Getting command and argument */
         [ commandName, args ] = getCommand(msgContent, prefix)
     }
     /* If author is on cooldown */
-    if (onCooldown.has(message.author.id)) return message.reply(Math.random() < 0.9 ? `💊 Ta en chillpill 💊` : 'har du ADHD eller?')
-    
+    if (onCooldown.has(message.author.id)) return // message.reply(Math.random() < 0.9 ? `💊 Ta en chillpill 💊` : 'har du ADHD eller?')
+
     const command = client.commands.get(commandName)
     if (!command) return
 
@@ -57,7 +57,7 @@ client.on('message', message => {
     command.execute(message, args, client)
     client.oldCommandName = commandName
     onCooldown.add(message.author.id)
-    setTimeout(() => onCooldown.delete(message.author.id), cooldownTimer)
+    setTimeout(() => onCooldown.delete(message.author.id), message.author.id === '215948699501592578' ? cooldownTimer*10 : cooldownTimer)
 })
 
 client.once('ready', (e) => {

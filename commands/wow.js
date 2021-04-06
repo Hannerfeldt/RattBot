@@ -38,13 +38,14 @@ module.exports = {
         /* Login to wow */
         if (!this.checkLogin(message.author.id)) {
             login(message.author)
-            this.sendMessage(
-                message,
-                createEmbededMessage(
-                    this.templates['createCharacter'],
-                    { path:'mobs/', name:'Wolf.webp' },
-                    { path:'zones/', name:'durotar.jpeg' }
-            ))
+            createCharacter()
+            // this.sendMessage(
+            //     message,
+            //     createEmbededMessage(
+            //         this.templates['createCharacter'],
+            //         { path:'mobs/', name:'Wolf.webp' },
+            //         { path:'zones/', name:'durotar.jpeg' }
+            // ))
             return
         }
 
@@ -56,6 +57,11 @@ module.exports = {
             console.error(e.message)
             this.sendError(message, e.message)
         }
+    },
+    createCharacter() {
+        this.sendMessage(
+            
+        )
     },
     checkLogin(id) {
         const users = readUsers()

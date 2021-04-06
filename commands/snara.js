@@ -16,23 +16,26 @@ module.exports = {
     name: 'snara',
     description: 'hängagubbe',
     words: [
-        'Systembolaget', 'Gitarr', 'Anna Lund', 'Rullstol', 'Fönster', 'Plastpåse', 'Jeansjacka', 'Kebab', 'Hamza',
+        'Systembolaget', 'Gitarr', 'Anna Lund', 'Rullstol', 'Fönster', 'Plastpåse', 'jeans', 'jinnsjacka', 'jeansjacka', 'Kebab', 'Hamza',
         'Jeppeg', 'Gitarr', 'Råtta', 'Molotov Cocktail', 'Knapp', 'Tangentbord', 'Mus', 'Röv', 'Penis', 'Tuttar', 'Jonathan',
-        'Among us', 'Frankrike', 'Eddie Palmer Pocket Pussy', 'Äpple', 'Pizza', 'New York', 'gräs', 'knark', 'girig',
-        'alf nyberg', 'förhud', 'leka', 'dum', 'horunge', 'kidnappning', 'hudkräm', 'Jakob Konnbjer', 'Enskede', 'Estet',
+        'Among us', 'Frankrike', 'Eddie Palmer Pocket Pussy', 'Äpple', 'Pizza', 'New York', 'gräs', 'knark', 'girig', 'lever på gränsen',
+        'förhud', 'leka', 'dum', 'horunge', 'kidnappning', 'hudkräm', 'Jakob Konnbjer', 'Enskede', 'Estet', 'g minus', 'avgrunden',
         'Snara', 'Spartan', 'Eddie Palmer', 'Pocketpussy', 'Hoppa på huvud', 'Skolskjutare', 'Barnens Ö', 'Triangelparken',
         'Weed', 'Molotov Cocktail', 'Coomer', 'Doomer', 'Boomer', 'Zoomer', 'Skate 3', 'Asiat', 'SATS', 'snål', 'drutten',
-        'bea', 'Barba', 'Alfred', 'Bea', 'Alf nyberg', 'Jonis', 'Kinagunga', 'Globen', 'Fotboll', 'Joint', 'Among us', 'Björn',
+        'Barba', 'Alfred', 'Bea', 'Alf nyberg', 'Jonis', 'Kinagunga', 'Globen', 'Fotboll', 'Joint', 'Among us', 'Björn',
         'Råtta', 'Reptil', 'Jonis', 'Bobby', 'skolskjutare', 'skjutning', 'schling', 'nugget', 'dragkedja', 'maria pool',
-        'golvläggare', 'doge coin', 'bilnycklar', 'speldesigner', 'ekonomistudent', 'hermans storebror', 'guitar hero',
-        'vinterbad', 'Devourer', 'Sax', 'Nils Werge', 'Klätterställning', 'pokemon', 'beyblade', 'anton', 'tindermannen',
-        'skateboard', 'djaffdjaff', 'lovisa', 'klassfest', 'world of warcraft', 'xphania', 'vasilis gotevas', 'trapphus','äcklig',
-        'ådrig', 'alfa', 'lich king', 'snek', 'stockholms blodbad', 'dummare', 'tentakel', 'minihamster', 'kebaben',
-        'extra kött', 'röd sås', 'vit sås', 'specialsås', 'blizzard', 'vit sås', 'harold and kumar', 'harold and coomar',
-        'isbad', 'isvak', 'propeller', 'drunkna', 'helikopter', 'avhuggen', 'stump', 'nih', 'kedja', 'avskuren', 'eksem',
-        'akne', 'indian', 'Heskiga Handen', 'för lång', 'gul', 'läderlappen', 'fuckroom', 'killroom', 'ashe main', 'stockholmspolisen STANNA',
-        'fyllecell', 'knark', 'drake', 'knark knark drake drake knapp', 'Elon musk', 'snorkråka', 'björnbuse',' krokig näsa',
-        'cigarett', 'alkohol', 'suga kuk för crack', 'plåga', 'snara', 'hoppa från bro', 'pim pim', 'zoo', 'pianotråd', 'lång',
+        'golvläggare', 'doge coin', 'bilnycklar', 'speldesigner', 'ekonomistudent', 'hermans storebror', 'guitar hero', 'euwstmacka',
+        'vinterbad', 'Devourer', 'Sax', 'Nils Werge', 'Klätterställning', 'pokemon', 'beyblade', 'anton', 'tindermannen', 'Holger',
+        'Hannibal', 'Hektor med c', 'Hugo', 'Herman', 'skateboard', 'djaffdjaff', 'lovisa', 'klassfest', 'world of warcraft', 'xphania',
+        'vasilis gotevas', 'trapphus', 'äcklig', 'ådrig', 'alfa', 'lich king', 'snek', 'stockholms blodbad', 'dummare',
+        'tentakel', 'minihamster', 'kebaben', 'fIIIIIsk', 'extra kött', 'röd sås', 'vit sås', 'specialsås', 'blizzard',
+        'vit sås', 'harold and kumar', 'harold and coomar', 'chickenwing', 'isbad', 'isvak', 'propeller', 'drunkna', 'helikopter',
+        'avhuggen', 'stump', 'nih', 'kedja', 'avskuren', 'eksem', 'ace', 'akne', 'indian', 'Heskiga Handen', 'för lång', 'gul',
+        'läderlappen', 'fuckroom', 'killroom', 'ashe main', 'stonk', 'stockholmspolisen STANNA', 'fyllecell', 'knark', 'drake',
+        'knark knark drake drake knapp', 'Elon musk', 'snorkråka', 'björnbuse', 'krokig näsa', 'cigarett', 'alkohol',
+        'suga kuk för crack', 'plåga', 'snara', 'hoppa från bro', 'business', 'pim pim', 'zoo', 'pianotråd', 'lång', 'Jay Smith',
+        'Johnny Sins', 'Oliver', 'Subway', 'gul sås', 'Nils Werge har bånge', 'hutu tutsi',
+        'breakycpk but at what cost', '9 fingrar upp', '10 cheese', 'koka lite pasta', 
     ],
     gameStarted: false,
     guesses: 3,
@@ -52,10 +55,10 @@ module.exports = {
             return this.makeDefaultEmbed(message)
         }
         const guess = args[0].split('').join()
-        
+
         /* Error */
         const errorMsg = argsHandler(guess, this.regEx, this.correct, this.wrong, message)
-        if (errorMsg) return this.makeErrorEmbed(message, errorMsg)        
+        if (errorMsg) return this.makeErrorEmbed(message, errorMsg)
 
         /* Points */
         let points
@@ -71,7 +74,7 @@ module.exports = {
         }
 
         this.score = scoreHandler(points, message.author)
-        
+
         /* Game Over */
         if (victory(this.chosenWord, this.correct)) return this.makeVictoryEmbed(message), client.noPrefixRequired = false
         if (this.guesses <= 0) return this.makeLossEmbed(message), client.noPrefixRequired = false

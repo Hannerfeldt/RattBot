@@ -14,9 +14,9 @@ module.exports = {
         /* Gets media using the random number */
         const randomImage = imageList[this.whiteList[rng]]
         /* If blacklist is full remove the oldest/first index and add it back to the whitelist in the correct position */
-        if (this.blackList.length === imageList.length / 2) this.whiteList.splice((this.blackList[0]-1), 0, this.blackList.splice(0, 1)[0])
+        if (this.blackList.length === imageList.length - 1) this.whiteList.splice((this.blackList[0] - 1), 0, this.blackList.splice(0, 1)[0])
         /* Adds new index to the blacklist and removes it from the whitelist */
-        this.blackList.push(this.whiteList.splice(this.whiteList.findIndex(e => e === rng), 1)[0])
+        this.blackList.push(this.whiteList.splice(this.whiteList.findIndex(e => e === this.whiteList[rng]), 1)[0])
         /* Sends media to channel */
         message.channel.send({files: [`./assets/knapp/${randomImage}`]})
     }
